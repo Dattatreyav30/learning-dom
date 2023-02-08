@@ -22,16 +22,33 @@ let mainHeder = document.getElementById('main-header');
 mainHeder.style.borderBottom =  'solid 3px 000'
 headerTitle.style.borderBottom = ' solid 3px #000'
 
-//get elelments by class name
+// get elelments by class name
 
 let items = document.getElementsByClassName('list-group-item');
 console.log(items);
 console.log(items[0]);
 items[0].textContent = 'hello2'
-items[0].style.backgroundColor = 'yellow'
+items[0].style.backgroundColor = 'yellow';
+items[0].style.fontWeight = 'bold'
 // changing calor for all elements;
 // items.style.backgroundColor = 'yellow' this dont work bcz of that we need to loop through
 
 for(let i=0; i<items.length;i++){
-    items[i].style.backgroundColor = 'pink'
+    items[i].style.backgroundColor = '#f4f4f4'
 }
+
+//getelementtagname
+
+let li = document.getElementsByTagName('li');
+console.log(li);
+console.log(li[0]);
+li[0].textContent = 'hello2'
+li[0].style.backgroundColor = 'yellow';
+li[0].style.fontWeight = 'bold'
+// changing calor for all elements;
+// li.style.backgroundColor = 'yellow' this dont work bcz of that we need to loop through
+
+for(let i=0; i<li.length;i++){
+    li[i].style.backgroundColor = '#f4f4f4'
+}
+
