@@ -6,18 +6,32 @@ console.log(document.title);
 console.log(document.URL);
 console.log(document.doctype);
 console.log(document.body);
-//forms , liks and many more
+// forms , liks and many more
 
 
-//selectors
+// selectors
 // getelelementbyid
-// console.log(document.getElementById('header-title'));
+console.log(document.getElementById('header-title'));
 let headerTitle = document.getElementById('header-title')
 console.log(headerTitle);
-// headerTitle.textContent = 'hello';
-// headerTitle.innerText = "goodbye";
+headerTitle.textContent = 'hello';
+headerTitle.innerText = "goodbye";
 console.log(headerTitle.textContent);
 console.log(headerTitle.innerText); //innertext will listen to styling
 let mainHeder = document.getElementById('main-header');
 mainHeder.style.borderBottom =  'solid 3px 000'
 headerTitle.style.borderBottom = ' solid 3px #000'
+
+//get elelments by class name
+
+let items = document.getElementsByClassName('list-group-item');
+console.log(items);
+console.log(items[0]);
+items[0].textContent = 'hello2'
+items[0].style.backgroundColor = 'yellow'
+// changing calor for all elements;
+// items.style.backgroundColor = 'yellow' this dont work bcz of that we need to loop through
+
+for(let i=0; i<items.length;i++){
+    items[i].style.backgroundColor = 'pink'
+}
