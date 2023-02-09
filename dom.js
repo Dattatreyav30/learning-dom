@@ -54,14 +54,14 @@
 
 
 // query selecter
-// let header = document.querySelector('#main-header');
-// header.style.borderBottom ="solid 4px #ccc";
+let header = document.querySelector('#main-header');
+header.style.borderBottom ="solid 4px #ccc";
 
-// let seconditem= document.querySelector('.list-group-item:nth-child(2)');
-// seconditem.style.backgroundColor = 'green'
+let seconditem= document.querySelector('.list-group-item:nth-child(2)');
+seconditem.style.backgroundColor = 'green'
 
-// let thirditem= document.querySelector('.list-group-item:nth-child(3)');
-// thirditem.style.display ='none'
+let thirditem= document.querySelector('.list-group-item:nth-child(3)');
+thirditem.style.display ='none'
 
 //querselectorall
 
@@ -74,7 +74,6 @@ let odd = document.querySelectorAll('li:nth-child(odd)');
 for(let i=0; i<odd.length;i++){
     odd[i].style.backgroundColor = 'green'
 }
-
 
 
 
