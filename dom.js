@@ -54,26 +54,81 @@
 
 
 // query selecter
-let header = document.querySelector('#main-header');
-header.style.borderBottom ="solid 4px #ccc";
+// let header = document.querySelector('#main-header');
+// header.style.borderBottom ="solid 4px #ccc";
 
-let seconditem= document.querySelector('.list-group-item:nth-child(2)');
-seconditem.style.backgroundColor = 'green'
+// let seconditem= document.querySelector('.list-group-item:nth-child(2)');
+// seconditem.style.backgroundColor = 'green'
 
-let thirditem= document.querySelector('.list-group-item:nth-child(3)');
-thirditem.style.display ='none'
+// let thirditem= document.querySelector('.list-group-item:nth-child(3)');
+// thirditem.style.display ='none'
 
-//querselectorall
+// //querselectorall
 
-let secondItem = document.querySelectorAll('.list-group-item');
-secondItem[1].style.color = 'green';
+// let secondItem = document.querySelectorAll('.list-group-item');
+// secondItem[1].style.color = 'green';
 
-//making odd
+// //making odd
 
-let odd = document.querySelectorAll('li:nth-child(odd)');
-for(let i=0; i<odd.length;i++){
-    odd[i].style.backgroundColor = 'green'
-}
+// let odd = document.querySelectorAll('li:nth-child(odd)');
+// for(let i=0; i<odd.length;i++){
+//     odd[i].style.backgroundColor = 'green'
+// }
 
+//Traversing through dom
 
+// parentNode
+let itemList = document.querySelector('#items');
+console.log(itemList.parentNode)
+console.log(itemList.parentNode.parentNode);
 
+//parentElement
+let itemList2 = document.querySelector('#items');
+console.log(itemList2.parentElement)
+console.log(itemList2.parentElement.parentElement);
+
+// childnodes
+console.log(itemList.childNodes);
+console.log(itemList.children);
+console.log(itemList.firstChild);
+console.log(itemList.firstElementChild);
+
+// siblings
+console.log(itemList.nextSibling);
+console.log(itemList.nextElementSibling);
+console.log(itemList.previousSibling);
+console.log(itemList.previousElementSibling);
+
+// creating new textnode
+// create a div
+let newDiv = document.createElement('div');
+
+// add class
+newDiv.className = 'hello';
+
+// add id
+newDiv.id = 'hello1';
+
+// add attribute
+newDiv.setAttribute('title','Hellodiv');
+
+// create content
+let newDivText = document.createTextNode('hello world')
+
+// adding text
+newDiv.appendChild(newDivText);
+
+let container = document.querySelector('header .container');
+let h1 = document.querySelector('header h1');
+
+container.insertBefore(newDiv, h1)
+console.log(newDiv);
+
+//adding ehllo world before item1
+let ul = document.querySelector('div ul')
+console.log(ul);
+
+let li = document.querySelector('ul li');
+console.log(li)
+
+ul.insertBefore(newDiv,li)
