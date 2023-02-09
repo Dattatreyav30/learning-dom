@@ -78,57 +78,115 @@
 //Traversing through dom
 
 // parentNode
-let itemList = document.querySelector('#items');
-console.log(itemList.parentNode)
-console.log(itemList.parentNode.parentNode);
+// let itemList = document.querySelector('#items');
+// console.log(itemList.parentNode);
+// console.log(itemList.parentNode.parentNode);
 
-//parentElement
-let itemList2 = document.querySelector('#items');
-console.log(itemList2.parentElement)
-console.log(itemList2.parentElement.parentElement);
+// //parentElement
+// let itemList2 = document.querySelector('#items');
+// console.log(itemList2.parentElement);
+// console.log(itemList2.parentElement.parentElement);
 
-// childnodes
-console.log(itemList.childNodes);
-console.log(itemList.children);
-console.log(itemList.firstChild);
-console.log(itemList.firstElementChild);
+// // childnodes
+// console.log(itemList.childNodes);
+// console.log(itemList.children);
+// console.log(itemList.firstChild);
+// console.log(itemList.firstElementChild);
 
-// siblings
-console.log(itemList.nextSibling);
-console.log(itemList.nextElementSibling);
-console.log(itemList.previousSibling);
-console.log(itemList.previousElementSibling);
+// // siblings
+// console.log(itemList.nextSibling);
+// console.log(itemList.nextElementSibling);
+// console.log(itemList.previousSibling);
+// console.log(itemList.previousElementSibling);
 
-// creating new textnode
-// create a div
-let newDiv = document.createElement('div');
+// // creating new textnode
+// // create a div
+// let newDiv = document.createElement('div');
 
-// add class
-newDiv.className = 'hello';
+// // add class
+// newDiv.className = 'hello';
 
-// add id
-newDiv.id = 'hello1';
+// // add id
+// newDiv.id = 'hello1';
 
-// add attribute
-newDiv.setAttribute('title','Hellodiv');
+// // add attribute
+// newDiv.setAttribute('title','Hellodiv');
 
-// create content
-let newDivText = document.createTextNode('hello world')
+// // create content
+// let newDivText = document.createTextNode('hello world');
 
-// adding text
-newDiv.appendChild(newDivText);
+// // adding text
+// newDiv.appendChild(newDivText);
 
-let container = document.querySelector('header .container');
-let h1 = document.querySelector('header h1');
+// let container = document.querySelector('header .container');
+// let h1 = document.querySelector('header h1');
 
-container.insertBefore(newDiv, h1)
-console.log(newDiv);
+// container.insertBefore(newDiv, h1)
+// console.log(newDiv);
 
-//adding ehllo world before item1
-let ul = document.querySelector('div ul')
-console.log(ul);
+// //adding ehllo world before item1
+// let ul = document.querySelector('div ul')
+// console.log(ul);
 
-let li = document.querySelector('ul li');
-console.log(li)
+// let li = document.querySelector('ul li');
+// console.log(li);
 
-ul.insertBefore(newDiv,li)
+// ul.insertBefore(newDiv,li);
+// console.log(itemList2.parentElement);
+
+// adding and deleting tags
+
+//getting form element to add event
+let form = document.getElementById('addForm');
+
+// list of li tag 
+let itemList = document.getElementById('items');
+
+// adding event listner when submit is clicked
+form.addEventListener('submit', addItem);
+
+// delete event
+itemList.addEventListener('click', removeItem)
+function addItem(e) {
+    e.preventDefault();
+    // storing typed value inside input
+    let newItem = document.getElementById('item').value;
+
+    // creating new li tag
+    let li = document.createElement('li');
+
+    // adding same class name to newly created li tag
+    li.className = 'list-group-item';
+
+    // adding input text to li tag
+    li.appendChild(document.createTextNode(newItem));
+
+    // creating delete button
+    let deleteBtn = document.createElement('button');
+    deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+
+    // appending X into delete button by creating it
+    deleteBtn.appendChild(document.createTextNode('X'));
+
+    // finally adding to li tag
+    li.appendChild(deleteBtn);
+
+    let editButton = document.createElement('button');
+    editButton.className = 'btn-danger float-right';
+    editButton.appendChild(document.createTextNode('Edit'));
+    li.appendChild(editButton);
+
+
+    // adding li tag to newlist
+    itemList.appendChild(li);
+
+}
+
+function removeItem(e) {
+    if (e.target.classList.contains('delete')) {
+        let li = e.target.parentElement;
+        itemList.removeChild(li);
+    }
+}
+
+// creating edit button
