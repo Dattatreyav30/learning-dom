@@ -1,0 +1,93 @@
+body {
+    margin-top: 40px; /* This margin just makes the text easier to read. You can remove it if you want since it can mess with your other styles. */
+    background-image: url(http://surl.li/eksdq);
+    background-size: 100%;
+    background-repeat: no-repeat;
+   
+   
+  }
+  
+  body::before {
+    content: "XS";
+    color: red;
+    font-size: 2rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-image: url(http://surl.li/ekscc);
+  }
+  
+  /* This box class is purely used for explaining how the bootstrap grid system works. */
+  .box {
+    background-color: lightblue;
+    border: 1px solid blue;
+    min-height: 50px;
+    font-size: 2rem;
+    text-align: center;
+    width: 80%;
+    height: 40%;
+    
+  }
+
+  @media (min-width: 576px) {
+    body::before {
+      content: "SM";
+    }
+  }
+  
+  @media (min-width: 768px) {
+    body::before {
+      content: "MD";
+    }
+  }
+  
+  @media (min-width: 992px) {
+    body::before {
+      content: "LG";
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    body::before {
+      content: "XL";
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    body::before {
+      content: "XXL";
+    }
+  }
+  .center {
+    margin: auto;
+    width: 30%;
+    height: 10%;
+    border: 2px solid whitesmoke;
+    padding: 10px;
+    font-size: 100%;
+    background-color:whitesmoke;
+   
+  }
+  label{
+    text-align: right;
+    color: rgb(255, 115, 0);
+    padding: 4px;
+    width: auto;
+} 
+input{
+    width: 100%;
+    padding: 10px;
+}
+form{
+    text-align: center;
+   /* color: white; */
+}
+button{
+    background-color: orange;
+    width: 100%;
+    padding: 15px;
+}
+h3{
+    color: orange;
+}
