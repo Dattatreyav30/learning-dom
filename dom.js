@@ -202,24 +202,6 @@ function removeItem(e) {
 }
 // console.log(itemList.lastChild.textContent)
 // filteritems
-function filterItems(e) {
-    // convert text to lowercase
-    let text = e.target.value.toLowerCase();
-    // get list
-    let items = itemList.getElementsByTagName('li');
-    // convert to array
-    Array.from(items).forEach(function (item) {
-        let itemName = item.firstChild.textContent;
-        if (itemName.toLowerCase().indexOf(text) != -1) {
-            item.style.display = 'block';
-        }
-        else {
-            item.style.display = 'none';
-        }
-    })
-
-}
-
 // filterItems for second input
 function filterItems(e) {
     // convert text to lowercase
