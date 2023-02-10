@@ -142,11 +142,17 @@ let form = document.getElementById('addForm');
 // list of li tag 
 let itemList = document.getElementById('items');
 
+// filter
+let filter = document.getElementById('filter')
+
 // adding event listner when submit is clicked
 form.addEventListener('submit', addItem);
 
 // delete event
-itemList.addEventListener('click', removeItem)
+itemList.addEventListener('click', removeItem);
+
+// filter event
+filter.addEventListener('keyup', filterItems);
 function addItem(e) {
     e.preventDefault();
     // storing typed value inside input
@@ -161,6 +167,10 @@ function addItem(e) {
     // adding input text to li tag
     li.appendChild(document.createTextNode(newItem));
 
+    // adding for second input box
+    let newItem2 = document.getElementById('item2').value;
+    li.appendChild(document.createTextNode(newItem2));
+
     // creating delete button
     let deleteBtn = document.createElement('button');
     deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
@@ -172,7 +182,7 @@ function addItem(e) {
     li.appendChild(deleteBtn);
 
     let editButton = document.createElement('button');
-    editButton.className = 'btn-danger float-right';
+    editButton.className = 'btn-sm float-right';
     editButton.appendChild(document.createTextNode('Edit'));
     li.appendChild(editButton);
 
@@ -184,9 +194,51 @@ function addItem(e) {
 
 function removeItem(e) {
     if (e.target.classList.contains('delete')) {
-        let li = e.target.parentElement;
-        itemList.removeChild(li);
+        if (confirm('are you sure')) {
+            let li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
     }
 }
+// console.log(itemList.lastChild.textContent)
+// filteritems
+function filterItems(e) {
+    // convert text to lowercase
+    let text = e.target.value.toLowerCase();
+    // get list
+    let items = itemList.getElementsByTagName('li');
+    // convert to array
+    Array.from(items).forEach(function (item) {
+        let itemName = item.firstChild.textContent;
+        if (itemName.toLowerCase().indexOf(text) != -1) {
+            item.style.display = 'block';
+        }
+        else {
+            item.style.display = 'none';
+        }
+    })
 
-// creating edit button
+}
+
+// filterItems for second input
+function filterItems(e) {
+    // convert text to lowercase
+    let text = e.target.value.toLowerCase();
+    // get list
+    let items = itemList.getElementsByTagName('li');
+    // convert to array
+    Array.from(items).forEach(function (item) {
+        let itemName = item.firstChild.textContent;
+        let itemName2 = item.childNodes[1].textContent;
+        if (itemName.toLowerCase().indexOf(text) != -1) {
+            item.style.display = 'block';
+        }
+        else {
+            item.style.display = 'none';
+        }
+        if (itemName2.toLowerCase().indexOf(text) != -1) {
+            item.style.display = 'block';
+        }
+
+    })
+}
