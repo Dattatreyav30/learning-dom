@@ -60,14 +60,23 @@
                 e.preventDefault()
             }
             form.classList.add('was-validated');
-            let userName = document.getElementById('name');
-            let userEmail = document.getElementById('email');
-            let userNumber = document.getElementById('phone');
-            let userTime = document.getElementById('time');
-            localStorage.setItem('Name',userName.value);
-            localStorage.setItem('email',userEmail.value);
-            localStorage.setItem('ph_no',userNumber.value);
-            localStorage.setItem('time',userTime.value);
+            // let userName = document.getElementById('name');
+            // let userEmail = document.getElementById('email');
+            // let userNumber = document.getElementById('phone');
+            // let userTime = document.getElementById('time');
+            // localStorage.setItem('Name',userName.value);
+            // localStorage.setItem('email',userEmail.value);
+            // localStorage.setItem('ph_no',userNumber.value);
+            // localStorage.setItem('time',userTime.value);
+
+            let createObject = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                ph_no: document.getElementById('phone').value,
+                time: document.getElementById('time').value
+            }
+            let object_sterilized = JSON.stringify(createObject)
+            localStorage.setItem('name', object_sterilized);
         })
     </script>
 </body>
