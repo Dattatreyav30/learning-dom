@@ -9,25 +9,24 @@
 </head>
 
 <body>
-    <div>
-        <form>
-            <div>
-                <label for="fname">Name:</label><br>
-                <input type="text" name="name" id="name">
-            </div>
-            <div>
-                <label for="email">Email:</label><br>
-                <input type="email" name="email" id="email">
-            </div>
-            <div>
-                <label for="phone">Phone:</label><br>
-                <input type="number" name="phone" id="phone" required>
-            </div>
-            <button onclick="">Submit</button><br>
-        </form>
-    </div>
+    <form>
+        <div>
+            <label for="fname">Name:</label><br>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="phone">Phone:</label><br>
+            <input type="number" name="phone" id="phone" required>
+        </div>
+        <button onclick="">Submit</button><br>
+        <ul id="list"></ul>
+    </form>
     <script>
-        const form = document.querySelector('form')
+        const form = document.querySelector('form');
         form.addEventListener('submit', e => {
             // let userName = document.getElementById('name');
             // let userEmail = document.getElementById('email');
@@ -44,13 +43,35 @@
                 email: document.getElementById('email').value,
                 ph_no: document.getElementById('phone').value,
             }
-            let object_sterilized = JSON.stringify(createObject)
-            localStorage.setItem('name', object_sterilized);
+            // creating localstorage
+            let object_sterilized = JSON.stringify(createObject);
+            localStorage.setItem(createObject.email, object_sterilized);
+
+            // creating li element
+            let ul = document.getElementById('list')
             let li = document.createElement('li');
             li.className = 'item-name';
             li.appendChild(document.createTextNode(object_sterilized));
-            form.appendChild(li);
+            ul.appendChild(li);
+            console.log(li)
+
+            // createing deletbotton
+            let deletebtn = document.createElement('input');
+            deletebtn.type = 'button';
+            deletebtn.value = 'delete';
+            deletebtn.id = 'deletBtn';
+            deletebtn.appendChild(document.createTextNode('delete'));
+            li.appendChild(deletebtn);
+            deletebtn.onclick = () => {
+                localStorage.removeItem(createObject.email);
+                ul.removeChild(li)
+            }
         })
+
+
+
+
+
     </script>
 </body>
 
